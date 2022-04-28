@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Newsreader:wght@300&family=Square+Peg&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <title>News</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header_logo"><h2>Sainath's News Portal</h2></div>
+        <div class="header_search">Search</div>
+    </header>
+    <div class="wrapper">
+        <div class="news">
+            <% let a=JSON.parse(newsData) %>
+                <%let articalsData=a["articles"]%>
+                    <% for( let index=0; index < articalsData.length; index++ ) { %>
+                        <a href="<%= articalsData[index].url %> " class="news_card">
+                            <img src="<%= articalsData[index].urlToImage %> " alt="">
+                            <% console.log(articalsData[index].urlToImage) %> 
+                            <h2><%= articalsData[index].title %> <br> </h2>
+                            <p><%= articalsData[index].description %></p>
+                                <br>
+                                <% } %>
+                        </a>
+                       
+        </div>
+    </div>
+</body>
+
+</html>
